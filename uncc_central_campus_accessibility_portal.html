@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNC Charlotte Campus Accessibility & Wheels-Free Policy Portal</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        /* Custom scrollbars */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+        .green-gradient {
+            background: linear-gradient(135deg, #047857 0%, #10b981 100%);
+        }
+        .gold-accent {
+            color: #d97706;
+        }
+        .bg-gold-accent {
+            background-color: #d97706;
+        }
+        .border-gold {
+            border-color: #d97706;
+        }
+        .pulse-slow {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white">
+
+    <!-- Top Navigation Header -->
+    <header class="bg-slate-900/90 backdrop-blur border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-emerald-600 flex items-center justify-center font-bold text-xl text-white shadow-lg shadow-emerald-900/40">
+                    <i data-lucide="accessibility" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight tracking-tight text-white flex items-center gap-2">
+                        UNC Charlotte <span class="text-xs px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 font-medium">Fall 2026 Policy Briefing</span>
+                    </h1>
+                    <p class="text-xs text-slate-400">Central Campus Wheels-Free Zone & Mobility Equity Evaluation</p>
+                </div>
+            </div>
+
+            <!-- Quick Navigation Nav -->
+            <nav class="hidden md:flex items-center space-x-1 text-sm font-medium">
+                <a href="#overview" class="px-3 py-2 rounded-md hover:bg-slate-800 text-slate-300 hover:text-white transition">Overview</a>
+                <a href="#map-simulator" class="px-3 py-2 rounded-md hover:bg-slate-800 text-slate-300 hover:text-white transition">Route Simulator</a>
+                <a href="#disparities" class="px-3 py-2 rounded-md hover:bg-slate-800 text-slate-300 hover:text-white transition">Equity Disparities</a>
+                <a href="#solutions" class="px-3 py-2 rounded-md hover:bg-slate-800 text-slate-300 hover:text-white transition">Solutions Modeler</a>
+                <a href="#ai-assistant" class="px-3 py-2 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white shadow transition flex items-center gap-1.5">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i> AI Policy Assistant
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+
+        <!-- Hero Overview Section -->
+        <section id="overview" class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950/40 border border-slate-800 p-6 md:p-10 shadow-2xl">
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 space-y-5">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
+                        <i data-lucide="shield-alert" class="w-3.5 h-3.5"></i>
+                        Policy Analysis & Student Impact Study
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+                        Pedestrian Safety vs. Micro-Mobility Equity: <span class="text-emerald-400">The "Wheels-Free" Debate</span>
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Beginning in Fall 2026, UNC Charlotte implemented a pedestrian-only <strong class="text-white font-semibold">"Wheels-Free Zone"</strong> across Central Campus to curtail high-speed collisions during peak hours. However, students, disabled community members, and accessibility advocates raise critical concerns regarding invisible disabilities, enforcement friction, and campus terrain challenges.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#map-simulator" class="px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-sm transition flex items-center gap-2 shadow-lg shadow-emerald-900/30">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i> Test Campus Routes
+                        </a>
+                        <a href="https://www.ninertimes.com/news/unc-charlotte-s-central-campus-goes-wheels-free-students-skeptical-of-effectiveness-necessity/article_9fc585ef-d1dd-4a17-a7fd-98d7958fc067.html" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-medium text-sm transition flex items-center gap-2">
+                            <i data-lucide="external-link" class="w-4 h-4"></i> Read Niner Times Article
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Metric Cards -->
+                <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                    <div class="bg-slate-900/80 backdrop-blur border border-slate-700/60 p-4 rounded-xl shadow-lg">
+                        <div class="text-xs text-slate-400 font-medium mb-1">Administrative Goal</div>
+                        <div class="text-2xl font-bold text-amber-400 flex items-center gap-1.5">
+                            <i data-lucide="shield-check" class="w-5 h-5 text-amber-400"></i> Zero Accidents
+                        </div>
+                        <p class="text-xs text-slate-400 mt-2">Eliminate fast electric scooters & bikes in dense pedestrian thoroughfares.</p>
+                    </div>
+
+                    <div class="bg-slate-900/80 backdrop-blur border border-slate-700/60 p-4 rounded-xl shadow-lg">
+                        <div class="text-xs text-slate-400 font-medium mb-1">Student Commute Delay</div>
+                        <div class="text-2xl font-bold text-rose-400 flex items-center gap-1.5">
+                            <i data-lucide="clock" class="w-5 h-5 text-rose-400"></i> +15-25 min
+                        </div>
+                        <p class="text-xs text-slate-400 mt-2">Extra trek duration created by dismount mandates across steep terrain.</p>
+                    </div>
+
+                    <div class="bg-slate-900/80 backdrop-blur border border-slate-700/60 p-4 rounded-xl shadow-lg">
+                        <div class="text-xs text-slate-400 font-medium mb-1">ADA Compliance</div>
+                        <div class="text-2xl font-bold text-emerald-400 flex items-center gap-1.5">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i> Formal Exemption
+                        </div>
+                        <p class="text-xs text-slate-400 mt-2">Official ADA mobility devices are exempt, but enforcement causes friction.</p>
+                    </div>
+
+                    <div class="bg-slate-900/80 backdrop-blur border border-slate-700/60 p-4 rounded-xl shadow-lg">
+                        <div class="text-xs text-slate-400 font-medium mb-1">Elevation Challenge</div>
+                        <div class="text-2xl font-bold text-sky-400 flex items-center gap-1.5">
+                            <i data-lucide="trending-up" class="w-5 h-5 text-sky-400"></i> Steep Hills
+                        </div>
+                        <p class="text-xs text-slate-400 mt-2">Campus topography turns mandatory walking into severe physical hardship.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Route & Topography Simulator -->
+        <section id="map-simulator" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+                <div>
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i data-lucide="map" class="w-5 h-5 text-emerald-400"></i>
+                        Interactive Campus Route & Topography Simulator
+                    </h3>
+                    <p class="text-slate-400 text-sm">Select origin and destination nodes on the map or legend below to calculate transit time and elevation fatigue.</p>
+                </div>
+                
+                <div class="flex items-center gap-3">
+                    <span class="inline-flex items-center gap-1.5 text-xs text-amber-400 bg-amber-950/40 border border-amber-800/60 px-3 py-1.5 rounded-full">
+                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span> Wheels-Free Zone Active
+                    </span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Map Visualization Area (De-cluttered & De-conflict SVG) -->
+                <div class="lg:col-span-7 bg-slate-950 border border-slate-800 rounded-xl p-4 relative overflow-hidden flex flex-col justify-between min-h-[440px]">
+                    
+                    <!-- Map Header Bar -->
+                    <div class="flex items-center justify-between text-xs text-slate-400 z-10 bg-slate-900/90 p-2.5 rounded-lg border border-slate-800">
+                        <span class="font-medium flex items-center gap-1.5 text-slate-200">
+                            <i data-lucide="navigation" class="w-3.5 h-3.5 text-emerald-400"></i> UNCC Central Campus Interactive Schematic
+                        </span>
+                        <div class="flex gap-3 text-[11px]">
+                            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-rose-500/40 border border-rose-500"></span> Central Ban Zone</span>
+                            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-slate-800 border border-slate-600"></span> Perimeter Hubs</span>
+                        </div>
+                    </div>
+
+                    <!-- Visual SVG Campus Schematic -->
+                    <div class="relative my-3 flex-grow flex items-center justify-center">
+                        <svg id="campus-svg" viewBox="0 0 700 380" class="w-full h-full max-h-[340px] rounded-lg">
+                            <defs>
+                                <!-- Map Grid Background -->
+                                <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+                                    <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+                                </pattern>
+                                <!-- Central Ban Zone Gradient -->
+                                <linearGradient id="banZoneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#ef4444" stop-opacity="0.12" />
+                                    <stop offset="100%" stop-color="#b91c1c" stop-opacity="0.22" />
+                                </linearGradient>
+                            </defs>
+
+                            <!-- Base Canvas -->
+                            <rect width="700" height="380" fill="#090d16" rx="8" />
+                            <rect width="700" height="380" fill="url(#grid)" />
+
+                            <!-- Outer Perimeter Loop Road Line -->
+                            <path d="M 90,320 C 90,80 610,80 610,320" fill="none" stroke="#334155" stroke-width="2.5" stroke-dasharray="6 6" />
+
+                            <!-- Distinct Zone 1: Central Pedestrian "Wheels-Free Zone" Box -->
+                            <rect x="230" y="80" width="240" height="230" rx="16" fill="url(#banZoneGrad)" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 4"/>
+                            <text x="350" y="102" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="bold" letter-spacing="1">PEDESTRIAN WHEELS-FREE ZONE</text>
+
+                            <!-- Topographical Incline Path (Craver Hill) -->
+                            <path d="M 170,300 Q 280,260 410,290" fill="none" stroke="#38bdf8" stroke-width="2" stroke-opacity="0.5" stroke-dasharray="3 3"/>
+                            <rect x="220" y="278" width="120" height="18" rx="4" fill="#0c4a6e" fill-opacity="0.8"/>
+                            <text x="280" y="291" text-anchor="middle" fill="#7dd3fc" font-size="9" font-weight="bold">▲ Craver Hill Incline</text>
+
+                            <!-- Route Line Dynamic Connector -->
+                            <line id="path-line" x1="140" y1="310" x2="350" y2="180" stroke="#10b981" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="6 4" class="transition-all duration-500" />
+
+                            <!-- INTERACTIVE CLICKABLE BUILDING NODES -->
+                            
+                            <!-- Node 1: Student Union (West Hub) -->
+                            <g class="node-item cursor-pointer group" data-node="union" onclick="selectNode('union')">
+                                <rect x="80" y="275" width="120" height="60" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2" class="group-hover:fill-slate-800 transition"/>
+                                <circle cx="102" cy="305" r="14" fill="#10b981" fill-opacity="0.2"/>
+                                <text x="102" y="309" text-anchor="middle" fill="#34d399" font-size="11" font-weight="bold">1</text>
+                                <text x="125" y="300" font-size="11" font-weight="bold" fill="#f8fafc">Student Union</text>
+                                <text x="125" y="315" font-size="9" fill="#94a3b8">West Perimeter Hub</text>
+                            </g>
+
+                            <!-- Node 2: Atkins Library (Central Core) -->
+                            <g class="node-item cursor-pointer group" data-node="library" onclick="selectNode('library')">
+                                <rect x="290" y="150" width="120" height="60" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2" class="group-hover:fill-slate-800 transition"/>
+                                <circle cx="312" cy="180" r="14" fill="#f59e0b" fill-opacity="0.2"/>
+                                <text x="312" y="184" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="bold">2</text>
+                                <text x="335" y="175" font-size="11" font-weight="bold" fill="#f8fafc">Atkins Library</text>
+                                <text x="335" y="190" font-size="9" fill="#fbbf24">Central Ban Core</text>
+                            </g>
+
+                            <!-- Node 3: EPIC / North Hub -->
+                            <g class="node-item cursor-pointer group" data-node="epic" onclick="selectNode('epic')">
+                                <rect x="500" y="90" width="120" height="60" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="2" class="group-hover:fill-slate-800 transition"/>
+                                <circle cx="522" cy="120" r="14" fill="#3b82f6" fill-opacity="0.2"/>
+                                <text x="522" y="124" text-anchor="middle" fill="#60a5fa" font-size="11" font-weight="bold">3</text>
+                                <text x="545" y="115" font-size="11" font-weight="bold" fill="#f8fafc">EPIC Hall</text>
+                                <text x="545" y="130" font-size="9" fill="#94a3b8">North Hub</text>
+                            </g>
+
+                            <!-- Node 4: SAC / Health Center -->
+                            <g class="node-item cursor-pointer group" data-node="sac" onclick="selectNode('sac')">
+                                <rect x="250" y="225" width="115" height="50" rx="10" fill="#1e293b" stroke="#ec4899" stroke-width="2" class="group-hover:fill-slate-800 transition"/>
+                                <circle cx="270" cy="250" r="12" fill="#ec4899" fill-opacity="0.2"/>
+                                <text x="270" y="254" text-anchor="middle" fill="#f472b6" font-size="10" font-weight="bold">4</text>
+                                <text x="290" y="248" font-size="10" font-weight="bold" fill="#f8fafc">SAC / Health</text>
+                                <text x="290" y="260" font-size="8.5" fill="#94a3b8">South Corridor</text>
+                            </g>
+
+                            <!-- Node 5: Fretwell Building -->
+                            <g class="node-item cursor-pointer group" data-node="fretwell" onclick="selectNode('fretwell')">
+                                <rect x="380" y="225" width="115" height="50" rx="10" fill="#1e293b" stroke="#8b5cf6" stroke-width="2" class="group-hover:fill-slate-800 transition"/>
+                                <circle cx="400" cy="250" r="12" fill="#8b5cf6" fill-opacity="0.2"/>
+                                <text x="400" y="254" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="bold">5</text>
+                                <text x="420" y="248" font-size="10" font-weight="bold" fill="#f8fafc">Fretwell Hall</text>
+                                <text x="420" y="260" font-size="8.5" fill="#94a3b8">East Core</text>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <!-- Quick Location Selector Legend (Easy Tap Options) -->
+                    <div class="space-y-1.5 pt-1">
+                        <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Quick Select Location Nodes:</div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-1.5 text-xs">
+                            <button onclick="selectNode('union')" class="p-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-emerald-500/50 text-slate-200 text-left flex items-center gap-1.5 transition">
+                                <span class="w-4 h-4 rounded bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center text-[10px]">1</span>
+                                <span class="truncate">Student Union</span>
+                            </button>
+                            <button onclick="selectNode('library')" class="p-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-amber-500/50 text-slate-200 text-left flex items-center gap-1.5 transition">
+                                <span class="w-4 h-4 rounded bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-[10px]">2</span>
+                                <span class="truncate">Atkins Library</span>
+                            </button>
+                            <button onclick="selectNode('epic')" class="p-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-blue-500/50 text-slate-200 text-left flex items-center gap-1.5 transition">
+                                <span class="w-4 h-4 rounded bg-blue-500/20 text-blue-400 font-bold flex items-center justify-center text-[10px]">3</span>
+                                <span class="truncate">EPIC Hall</span>
+                            </button>
+                            <button onclick="selectNode('sac')" class="p-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-pink-500/50 text-slate-200 text-left flex items-center gap-1.5 transition">
+                                <span class="w-4 h-4 rounded bg-pink-500/20 text-pink-400 font-bold flex items-center justify-center text-[10px]">4</span>
+                                <span class="truncate">SAC / Health</span>
+                            </button>
+                            <button onclick="selectNode('fretwell')" class="p-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-purple-500/50 text-slate-200 text-left flex items-center gap-1.5 transition">
+                                <span class="w-4 h-4 rounded bg-purple-500/20 text-purple-400 font-bold flex items-center justify-center text-[10px]">5</span>
+                                <span class="truncate">Fretwell Hall</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Map Helper Footer Bar -->
+                    <div class="mt-3 text-xs text-slate-400 bg-slate-900/80 p-2.5 rounded-lg flex items-center justify-between border border-slate-800">
+                        <span class="flex items-center gap-1.5"><i data-lucide="mouse-pointer-click" class="w-3.5 h-3.5 text-emerald-400"></i> Tap building card to set origin or destination.</span>
+                        <span id="route-indicator-text" class="text-emerald-400 font-semibold truncate max-w-[240px]">Active Route: Student Union ➔ Atkins Library</span>
+                    </div>
+                </div>
+
+                <!-- Simulator Control & Stats Panel -->
+                <div class="lg:col-span-5 flex flex-col justify-between space-y-5">
+                    <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-4">
+                        <h4 class="text-base font-semibold text-white flex items-center gap-2">
+                            <i data-lucide="sliders" class="w-4 h-4 text-emerald-400"></i> Route Parameters
+                        </h4>
+
+                        <!-- Route Selection Dropdowns -->
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs text-slate-400 mb-1">Start Location</label>
+                                <select id="start-node" onchange="updateRouteCalculations()" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
+                                    <option value="union">Student Union (West Hub)</option>
+                                    <option value="sac">SAC / Health Center</option>
+                                    <option value="epic">EPIC / North Campus</option>
+                                    <option value="fretwell">Fretwell Hall</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs text-slate-400 mb-1">Destination</label>
+                                <select id="end-node" onchange="updateRouteCalculations()" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
+                                    <option value="library" selected>Atkins Library (Central)</option>
+                                    <option value="fretwell">Fretwell Hall</option>
+                                    <option value="epic">EPIC / North Campus</option>
+                                    <option value="union">Student Union (West Hub)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- User Profile Selection -->
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1">User Profile & Mobility Profile</label>
+                            <select id="user-profile" onchange="updateRouteCalculations()" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
+                                <option value="standard">Standard Student (Able-Bodied, No Fatigue)</option>
+                                <option value="invisible">Student with Invisible Disability / Chronic Fatigue</option>
+                                <option value="temporary">Student with Temporary Leg Injury / Crutches</option>
+                                <option value="ada-wheelchair">ADA Power Wheelchair / Exempt Assistive Device</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Calculated Comparison Cards -->
+                    <div class="space-y-3">
+                        <div class="text-xs uppercase font-bold text-slate-400 tracking-wider">Estimated Transit Comparison</div>
+                        
+                        <!-- Scenario 1: Pre-Policy (Micro-mobility Allowed) -->
+                        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+                                    <i data-lucide="zap" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-medium text-white">Pre-Policy (Riding Scooter/Bike)</div>
+                                    <div class="text-xs text-slate-400">Riding direct through Central Campus</div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div id="time-pre" class="text-lg font-bold text-emerald-400">4 min</div>
+                                <div class="text-[10px] text-slate-400">Low Fatigue</div>
+                            </div>
+                        </div>
+
+                        <!-- Scenario 2: Current Policy (Mandatory Dismount / Walking) -->
+                        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center">
+                                    <i data-lucide="footprints" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-medium text-white">Current Policy (Wheels-Free Ban)</div>
+                                    <div class="text-xs text-slate-400">Mandatory dismount + push scooter/walk</div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div id="time-post" class="text-lg font-bold text-amber-400">16 min</div>
+                                <div id="fatigue-post" class="text-[10px] text-rose-400 font-semibold">High Physical Burden</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Strain Alert Box -->
+                    <div id="strain-alert" class="p-3.5 rounded-xl bg-rose-950/40 border border-rose-800/60 text-rose-200 text-xs flex gap-3 items-start">
+                        <i data-lucide="alert-triangle" class="w-5 h-5 text-rose-400 flex-shrink-0 mt-0.5"></i>
+                        <div>
+                            <strong class="font-semibold text-rose-300">Accessibility Impact Alert:</strong>
+                            <span id="strain-alert-text">
+                                The current forced dismount across Craver Hill elevation creates severe physical fatigue for students with chronic health limitations.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deep Dive Equity Disparities Section -->
+        <section id="disparities" class="space-y-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <h3 class="text-2xl font-bold text-white tracking-tight flex items-center gap-2">
+                        <i data-lucide="scale" class="w-6 h-6 text-amber-400"></i>
+                        Accessibility Disparities & Unintended Consequences
+                    </h3>
+                    <p class="text-slate-400 text-sm mt-1">
+                        How the Fall 2026 Wheels-Free Zone impacts students with physical limitations, disability accommodations, and transit hurdles.
+                    </p>
+                </div>
+                <!-- Interactive Filter Tabs -->
+                <div class="flex flex-wrap gap-2 text-xs font-medium bg-slate-900 p-1.5 rounded-xl border border-slate-800">
+                    <button onclick="filterCards('all')" class="tab-btn px-3 py-1.5 rounded-lg bg-emerald-600 text-white transition" data-category="all">All Friction Areas</button>
+                    <button onclick="filterCards('invisible')" class="tab-btn px-3 py-1.5 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white transition" data-category="invisible">Invisible Disability</button>
+                    <button onclick="filterCards('stigma')" class="tab-btn px-3 py-1.5 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white transition" data-category="stigma">Security & Stigma</button>
+                    <button onclick="filterCards('topo')" class="tab-btn px-3 py-1.5 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white transition" data-category="topo">Terrain & Topography</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Card 1: Public Stigmatization -->
+                <div class="disparity-card invisible-card stigma-card bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-slate-700 transition flex flex-col justify-between shadow-lg">
+                    <div class="space-y-3">
+                        <div class="w-10 h-10 rounded-lg bg-rose-500/10 text-rose-400 flex items-center justify-center">
+                            <i data-lucide="eye-off" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-base">Public Stigmatization & Surveillance</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Students utilizing low-speed assistive e-mobility face public scrutiny, peer hostility, and questioning from security who cannot visually distinguish an exempt user from a non-exempt rider.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
+                        <span class="text-rose-400 font-medium">High Social Friction</span>
+                        <span>Source: Niner Times [2]</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Invisible Disability Barriers -->
+                <div class="disparity-card invisible-card bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-slate-700 transition flex flex-col justify-between shadow-lg">
+                    <div class="space-y-3">
+                        <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center">
+                            <i data-lucide="heart-pulse" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-base">Invisible Disability Barriers</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Students suffering from chronic fatigue, POTS, joint pain, or temporary injuries rely on micro-mobility. Administrative burdens to secure formal ADA passes force many to push past physical limits.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
+                        <span class="text-amber-400 font-medium">Administrative Obstacle</span>
+                        <span>Source: Policy Brief [1]</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Topographical Strain -->
+                <div class="disparity-card topo-card bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-slate-700 transition flex flex-col justify-between shadow-lg">
+                    <div class="space-y-3">
+                        <div class="w-10 h-10 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center">
+                            <i data-lucide="mountain" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-base">Topographical Strain</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            UNC Charlotte's steep elevation changes and vast footprint turn mandatory dismounts into severe physical hardship, turning a 10-minute commute into an arduous trek for vulnerable students.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
+                        <span class="text-sky-400 font-medium">Terrain Barrier</span>
+                        <span>Source: Policy Brief [1]</span>
+                    </div>
+                </div>
+
+                <!-- Card 4: Periphery Isolation -->
+                <div class="disparity-card topo-card bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-slate-700 transition flex flex-col justify-between shadow-lg">
+                    <div class="space-y-3">
+                        <div class="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center">
+                            <i data-lucide="parking-circle" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-base">Periphery Parking Mandates</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Forcing micro-mobility parking exclusively to outer ring hubs isolates mobility-impaired commuters from essential academic buildings, libraries, and student support hubs.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
+                        <span class="text-purple-400 font-medium">Spatial Isolation</span>
+                        <span>Source: Niner Times [2]</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Student Voice Testimonial Banner -->
+            <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border stroke-slate-800 border-slate-800 rounded-xl p-6 shadow-xl flex flex-col md:flex-row items-center gap-6">
+                <div class="w-14 h-14 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center flex-shrink-0 text-amber-400 text-2xl font-serif italic">
+                    “
+                </div>
+                <div class="space-y-2 flex-grow">
+                    <p class="text-slate-200 text-sm md:text-base italic">
+                        "While ADA motorized chairs are officially exempt, riding an e-scooter at 5 mph was the only way I could get between classes with my chronic fatigue syndrome without collapsing. Now, I have to walk uphill and miss back-to-back lectures."
+                    </p>
+                    <div class="text-xs text-slate-400 font-medium flex items-center gap-2">
+                        <span class="text-emerald-400 font-semibold">— UNCC Undergraduate Student</span>
+                        <span>•</span>
+                        <span>Niner Times Student Survey</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Modeler & Strategic Recommendations -->
+        <section id="solutions" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+                <div>
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i data-lucide="sliders-horizontal" class="w-5 h-5 text-emerald-400"></i>
+                        Strategic Framework & Solution Modeler
+                    </h3>
+                    <p class="text-slate-400 text-sm">Toggle proposed compromise policies to evaluate their impact on pedestrian safety vs. mobility equity.</p>
+                </div>
+                <div class="text-xs text-slate-400">
+                    <span class="text-emerald-400 font-bold">Policy Goal:</span> Balanced Infrastructure
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Interactive Policy Toggles -->
+                <div class="lg:col-span-6 space-y-4">
+                    
+                    <!-- Proposal 1 -->
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 flex items-start gap-4">
+                        <input type="checkbox" id="prop-1" onchange="recalculateSolutionScore()" class="mt-1 w-4 h-4 text-emerald-600 bg-slate-900 border-slate-700 rounded focus:ring-emerald-500 focus:ring-offset-slate-900">
+                        <label for="prop-1" class="cursor-pointer space-y-1">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-sm text-white">I. Speed-Throttled Mobility Corridors</span>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">Geofencing Tech</span>
+                            </div>
+                            <p class="text-slate-400 text-xs">Utilize GPS geofencing to cap micro-mobility speeds to 4–6 mph in dense areas rather than enforcing an outright blanket ban.</p>
+                        </label>
+                    </div>
+
+                    <!-- Proposal 2 -->
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 flex items-start gap-4">
+                        <input type="checkbox" id="prop-2" onchange="recalculateSolutionScore()" class="mt-1 w-4 h-4 text-emerald-600 bg-slate-900 border-slate-700 rounded focus:ring-emerald-500 focus:ring-offset-slate-900">
+                        <label for="prop-2" class="cursor-pointer space-y-1">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-sm text-white">II. Streamlined Universal Exemption Pass</span>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Discreet Digital Badge</span>
+                            </div>
+                            <p class="text-slate-400 text-xs">Issue optional, discreet digital mobility passes through Disability Services to reduce security friction and peer confrontation.</p>
+                        </label>
+                    </div>
+
+                    <!-- Proposal 3 -->
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 flex items-start gap-4">
+                        <input type="checkbox" id="prop-3" onchange="recalculateSolutionScore()" class="mt-1 w-4 h-4 text-emerald-600 bg-slate-900 border-slate-700 rounded focus:ring-emerald-500 focus:ring-offset-slate-900">
+                        <label for="prop-3" class="cursor-pointer space-y-1">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-sm text-white">III. Dedicated Accessible Rolling Lanes</span>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">Infrastructure</span>
+                            </div>
+                            <p class="text-slate-400 text-xs">Convert underutilized perimeter pathways into demarcated rolling lanes, allowing smooth transit across Central Campus.</p>
+                        </label>
+                    </div>
+
+                    <!-- Proposal 4 -->
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 flex items-start gap-4">
+                        <input type="checkbox" id="prop-4" onchange="recalculateSolutionScore()" class="mt-1 w-4 h-4 text-emerald-600 bg-slate-900 border-slate-700 rounded focus:ring-emerald-500 focus:ring-offset-slate-900">
+                        <label for="prop-4" class="cursor-pointer space-y-1">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-sm text-white">IV. Joint Accessibility Oversight Committee</span>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">Governance</span>
+                            </div>
+                            <p class="text-slate-400 text-xs">Form a joint committee of Disability Services, student reps, and campus planners to continually audit policy equity.</p>
+                        </label>
+                    </div>
+
+                </div>
+
+                <!-- Solution Impact Radar Chart & Metrics -->
+                <div class="lg:col-span-6 bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                                <i data-lucide="bar-chart-3" class="w-4 h-4 text-emerald-400"></i> Estimated Policy Impact Evaluation
+                            </h4>
+                            <span id="overall-score-badge" class="text-xs px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 font-bold">
+                                Current Ban Base
+                            </span>
+                        </div>
+
+                        <!-- Chart Canvas -->
+                        <div class="relative h-64 w-full flex items-center justify-center">
+                            <canvas id="impactChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Metric Indicators -->
+                    <div class="grid grid-cols-3 gap-3 pt-4 border-t border-slate-800 text-center">
+                        <div>
+                            <div class="text-[10px] text-slate-400">Pedestrian Safety</div>
+                            <div id="metric-safety" class="text-lg font-bold text-emerald-400">90/100</div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-400">Mobility Equity</div>
+                            <div id="metric-equity" class="text-lg font-bold text-rose-400">35/100</div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-400">Transit Efficiency</div>
+                            <div id="metric-efficiency" class="text-lg font-bold text-amber-400">40/100</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI-Powered Policy Assistant & Document Generator -->
+        <section id="ai-assistant" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+                <div>
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i data-lucide="sparkles" class="w-5 h-5 text-emerald-400"></i>
+                        AI Policy Assistant & Community Q&A
+                    </h3>
+                    <p class="text-slate-400 text-sm">Ask questions about UNCC accessibility guidelines, generate accommodation request letters, or analyze policy compromise scenarios.</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xs text-slate-400">Powered by Gemini 3 Flash</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Chat & Prompt Area -->
+                <div class="lg:col-span-7 flex flex-col space-y-4">
+                    
+                    <!-- Suggested Action Chips -->
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <button onclick="setPrompt('How can a student with an invisible illness request a wheels exemption at UNCC?')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition text-left">
+                            ♿ How to request disability exemption?
+                        </button>
+                        <button onclick="setPrompt('Draft a concise policy feedback message to UNCC SGA advocating for geofenced speed corridors.')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition text-left">
+                            📝 Draft SGA Policy Feedback
+                        </button>
+                        <button onclick="setPrompt('What are the main arguments presented in the Niner Times regarding student skepticism?')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition text-left">
+                            📰 Summarize Niner Times concerns
+                        </button>
+                    </div>
+
+                    <!-- Chat Response Output Window -->
+                    <div id="chat-output" class="bg-slate-950 border border-slate-800 rounded-xl p-4 min-h-[220px] max-h-[320px] overflow-y-auto text-sm text-slate-300 leading-relaxed space-y-3">
+                        <div class="text-slate-500 italic text-xs">
+                            Hello! I am your UNCC Campus Accessibility Policy Assistant. You can ask me questions regarding the Fall 2026 Wheels-Free Zone, ADA accommodations, or request policy feedback drafts.
+                        </div>
+                    </div>
+
+                    <!-- Input Box & Buttons -->
+                    <div class="flex gap-2">
+                        <input type="text" id="user-prompt" placeholder="Ask about UNCC wheels-free policy or accessibility..." class="flex-grow bg-slate-950 border border-slate-700 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500 placeholder-slate-500">
+                        <button onclick="askGemini()" id="send-btn" class="px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-sm transition flex items-center gap-2 shadow-lg shadow-emerald-900/30">
+                            <i data-lucide="send" class="w-4 h-4"></i> Ask
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Reference & References Panel -->
+                <div class="lg:col-span-5 bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between space-y-4">
+                    <div>
+                        <h4 class="font-bold text-white text-sm flex items-center gap-2 mb-3">
+                            <i data-lucide="book-open" class="w-4 h-4 text-emerald-400"></i> Primary Policy References
+                        </h4>
+                        <ul class="space-y-2.5 text-xs text-slate-300">
+                            <li class="p-2.5 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
+                                <div class="font-semibold text-emerald-400">[1] UNC Charlotte Executive Communication</div>
+                                <p class="text-slate-400 text-[11px]">"Central Campus Will Be a Wheels-Free Zone Beginning Fall 2026", Inside UNC Charlotte (Aug 2026).</p>
+                            </li>
+                            <li class="p-2.5 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
+                                <div class="font-semibold text-emerald-400">[2] The Niner Times News Desk</div>
+                                <p class="text-slate-400 text-[11px]">"UNC Charlotte's Central Campus Goes Wheels-Free; Students Skeptical of Effectiveness & Necessity."</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="text-[11px] text-slate-500 border-t border-slate-800 pt-3">
+                        Interactive Policy Portal built for UNC Charlotte Campus Accessibility evaluation.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-6 text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-2">
+            <p>UNC Charlotte Campus Accessibility Evaluation & Policy Briefing Tool</p>
+            <p class="text-slate-600">Data synthesized from Inside UNC Charlotte communications & The Niner Times student news coverage.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Node & Route Data Matrix for Campus Simulator
+        const nodeData = {
+            union: { name: "Student Union", type: "perimeter", zone: "Outer Hub" },
+            library: { name: "Atkins Library", type: "central", zone: "Pedestrian Wheels-Free Zone" },
+            epic: { name: "EPIC / North Hub", type: "perimeter", zone: "Outer Hub" },
+            sac: { name: "SAC / Health Center", type: "central", zone: "Central Core" },
+            fretwell: { name: "Fretwell Hall", type: "central", zone: "High Density Central" }
+        };
+
+        // Distance & Incline Matrix (Distance in mins, elevation difficulty)
+        const routeMatrix = {
+            "union-library": { preTime: 4, walkTime: 16, hillBurden: "High Incline (Craver Hill)" },
+            "union-fretwell": { preTime: 5, walkTime: 18, hillBurden: "Moderate Incline" },
+            "union-epic": { preTime: 7, walkTime: 24, hillBurden: "High Distance & Terrain" },
+            "union-sac": { preTime: 3, walkTime: 12, hillBurden: "Moderate Elevation Change" },
+            "sac-library": { preTime: 3, walkTime: 10, hillBurden: "Low Incline" },
+            "sac-fretwell": { preTime: 4, walkTime: 14, hillBurden: "Moderate Incline" },
+            "sac-epic": { preTime: 6, walkTime: 22, hillBurden: "Steep Elevation Drop/Climb" },
+            "epic-library": { preTime: 6, walkTime: 20, hillBurden: "Steep Elevation Drop/Climb" },
+            "epic-fretwell": { preTime: 5, walkTime: 17, hillBurden: "Moderate Incline" },
+            "fretwell-library": { preTime: 2, walkTime: 6, hillBurden: "Low Incline / Flat Corridor" }
+        };
+
+        let selectedStart = "union";
+        let selectedEnd = "library";
+
+        function selectNode(nodeId) {
+            if (!nodeData[nodeId]) return;
+            
+            if (nodeId === selectedEnd) {
+                // Swap if clicked existing destination
+                const temp = selectedStart;
+                selectedStart = selectedEnd;
+                selectedEnd = temp;
+            } else {
+                selectedEnd = nodeId;
+            }
+            
+            // Sync dropdown UI values safely
+            const startSelect = document.getElementById('start-node');
+            const endSelect = document.getElementById('end-node');
+            
+            if (startSelect && endSelect) {
+                startSelect.value = selectedStart;
+                endSelect.value = selectedEnd;
+            }
+            
+            updateRouteCalculations();
+        }
+
+        function updateRouteCalculations() {
+            selectedStart = document.getElementById('start-node')?.value || "union";
+            selectedEnd = document.getElementById('end-node')?.value || "library";
+            const profile = document.getElementById('user-profile')?.value || "standard";
+
+            // Fallback object to prevent undefined errors
+            const startInfo = nodeData[selectedStart] || { name: "Selected Location", zone: "Campus Core" };
+            const endInfo = nodeData[selectedEnd] || { name: "Selected Destination", zone: "Campus Core" };
+
+            // Prevent same start and end
+            if (selectedStart === selectedEnd) {
+                document.getElementById('time-pre').innerText = "0 min";
+                document.getElementById('time-post').innerText = "0 min";
+                document.getElementById('fatigue-post').innerText = "No travel required";
+                document.getElementById('strain-alert-text').innerText = "Start and destination are identical.";
+                document.getElementById('route-indicator-text').innerText = `Active Route: ${startInfo.name} (Same location)`;
+                return;
+            }
+
+            // Find key pair safely
+            const key = `${selectedStart}-${selectedEnd}`;
+            const reverseKey = `${selectedEnd}-${selectedStart}`;
+            const route = routeMatrix[key] || routeMatrix[reverseKey] || { preTime: 5, walkTime: 15, hillBurden: "Moderate Incline" };
+
+            let preTime = route.preTime;
+            let postTime = route.walkTime;
+            let fatigueMsg = "Standard Walking Strain";
+
+            // Modify according to user mobility profile
+            if (profile === 'invisible') {
+                postTime = Math.round(route.walkTime * 1.5);
+                fatigueMsg = "Severe Physical Burden / Energy Depletion";
+            } else if (profile === 'temporary') {
+                postTime = Math.round(route.walkTime * 1.8);
+                fatigueMsg = "Extreme Physical Strain (Crutches/Injury)";
+            } else if (profile === 'ada-wheelchair') {
+                preTime = Math.round(route.preTime * 1.2);
+                postTime = Math.round(route.preTime * 1.2); // Wheelchair exempt from ban
+                fatigueMsg = "Allowed under ADA Exemption (Navigates Ramps)";
+            }
+
+            document.getElementById('time-pre').innerText = `${preTime} min`;
+            document.getElementById('time-post').innerText = `${postTime} min`;
+            document.getElementById('fatigue-post').innerText = fatigueMsg;
+            document.getElementById('route-indicator-text').innerText = `Active Route: ${startInfo.name} ➔ ${endInfo.name}`;
+
+            // Update Alert Text
+            document.getElementById('strain-alert-text').innerText = `Traversing ${startInfo.name} to ${endInfo.name} involves ${route.hillBurden}. ${profile === 'invisible' ? 'Students with invisible illness experience significant fatigue during class changes.' : 'Mandatory dismount adds considerable delay.'}`;
+
+            // Update SVG Line endpoint visually centered inside new rectangular node cards
+            const svgLine = document.getElementById('path-line');
+            const coords = {
+                union: { x: 140, y: 305 },
+                library: { x: 350, y: 180 },
+                epic: { x: 560, y: 120 },
+                sac: { x: 307, y: 250 },
+                fretwell: { x: 437, y: 250 }
+            };
+            if (svgLine && coords[selectedStart] && coords[selectedEnd]) {
+                svgLine.setAttribute('x1', coords[selectedStart].x);
+                svgLine.setAttribute('y1', coords[selectedStart].y);
+                svgLine.setAttribute('x2', coords[selectedEnd].x);
+                svgLine.setAttribute('y2', coords[selectedEnd].y);
+            }
+        }
+
+        // Filter Disparity Cards
+        function filterCards(category) {
+            const cards = document.querySelectorAll('.disparity-card');
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-category') === category) {
+                    btn.classList.add('bg-emerald-600', 'text-white');
+                    btn.classList.remove('hover:bg-slate-800', 'text-slate-400');
+                } else {
+                    btn.classList.remove('bg-emerald-600', 'text-white');
+                    btn.classList.add('hover:bg-slate-800', 'text-slate-400');
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'flex';
+                } else if (category === 'invisible' && card.classList.contains('invisible-card')) {
+                    card.style.display = 'flex';
+                } else if (category === 'stigma' && card.classList.contains('stigma-card')) {
+                    card.style.display = 'flex';
+                } else if (category === 'topo' && card.classList.contains('topo-card')) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Solution Chart & Radar Impact Calculator
+        let impactChart;
+        function initChart() {
+            const ctx = document.getElementById('impactChart').getContext('2d');
+            impactChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Pedestrian Safety', 'Mobility Equity', 'Transit Efficiency', 'Enforcement Ease', 'Community Satisfaction'],
+                    datasets: [{
+                        label: 'Current Blanket Ban Policy',
+                        data: [90, 35, 40, 75, 30],
+                        backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                        borderColor: '#ef4444',
+                        pointBackgroundColor: '#ef4444',
+                        borderWidth: 2
+                    }, {
+                        label: 'Selected Compromise Policy',
+                        data: [90, 35, 40, 75, 30],
+                        backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                        borderColor: '#10b981',
+                        pointBackgroundColor: '#10b981',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: '#334155' },
+                            grid: { color: '#1e293b' },
+                            pointLabels: { color: '#94a3b8', font: { size: 10, weight: 'bold' } },
+                            ticks: { display: false, backdropColor: 'transparent' },
+                            min: 0,
+                            max: 100
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: '#cbd5e1', font: { size: 10 } }
+                        }
+                    }
+                }
+            });
+        }
+
+        function recalculateSolutionScore() {
+            const p1 = document.getElementById('prop-1').checked;
+            const p2 = document.getElementById('prop-2').checked;
+            const p3 = document.getElementById('prop-3').checked;
+            const p4 = document.getElementById('prop-4').checked;
+
+            // Base scores (Current Ban)
+            let safety = 90;
+            let equity = 35;
+            let efficiency = 40;
+            let enforcement = 75;
+            let satisfaction = 30;
+
+            if (p1) { // Speed Throttled Corridors
+                safety += 2;
+                equity += 25;
+                efficiency += 30;
+                enforcement += 10;
+                satisfaction += 25;
+            }
+
+            if (p2) { // Universal Exemption Pass
+                equity += 20;
+                enforcement += 10;
+                satisfaction += 15;
+            }
+
+            if (p3) { // Dedicated Rolling Lanes
+                safety += 5;
+                equity += 15;
+                efficiency += 15;
+                satisfaction += 15;
+            }
+
+            if (p4) { // Oversight Committee
+                equity += 5;
+                satisfaction += 10;
+            }
+
+            // Cap at 100
+            safety = Math.min(100, safety);
+            equity = Math.min(100, equity);
+            efficiency = Math.min(100, efficiency);
+            enforcement = Math.min(100, enforcement);
+            satisfaction = Math.min(100, satisfaction);
+
+            // Update Chart
+            impactChart.data.datasets[1].data = [safety, equity, efficiency, enforcement, satisfaction];
+            impactChart.update();
+
+            // Update Metrics Display
+            document.getElementById('metric-safety').innerText = `${safety}/100`;
+            document.getElementById('metric-equity').innerText = `${equity}/100`;
+            document.getElementById('metric-efficiency').innerText = `${efficiency}/100`;
+
+            const checkedCount = [p1, p2, p3, p4].filter(Boolean).length;
+            const badge = document.getElementById('overall-score-badge');
+            if (checkedCount === 0) {
+                badge.innerText = "Current Ban Base";
+                badge.className = "text-xs px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 font-bold";
+            } else {
+                badge.innerText = `${checkedCount} Proposals Active`;
+                badge.className = "text-xs px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-800 font-bold";
+            }
+        }
+
+        // Gemini AI Integration Logic
+        function setPrompt(text) {
+            document.getElementById('user-prompt').value = text;
+        }
+
+        async function askGemini() {
+            const inputEl = document.getElementById('user-prompt');
+            const outputEl = document.getElementById('chat-output');
+            const sendBtn = document.getElementById('send-btn');
+            const userText = inputEl.value.trim();
+
+            if (!userText) return;
+
+            // Append User Question
+            const userBubble = document.createElement('div');
+            userBubble.className = "bg-slate-900 border border-slate-800 p-3 rounded-lg text-emerald-300 font-medium text-xs flex gap-2 items-start";
+            userBubble.innerHTML = `<i data-lucide="user" class="w-4 h-4 flex-shrink-0 mt-0.5"></i> <div>${userText}</div>`;
+            outputEl.appendChild(userBubble);
+            lucide.createIcons();
+            
+            inputEl.value = '';
+            outputEl.scrollTop = outputEl.scrollHeight;
+
+            // Loading Indicator
+            const loadingBubble = document.createElement('div');
+            loadingBubble.className = "text-slate-400 text-xs italic flex items-center gap-2 p-2";
+            loadingBubble.id = "ai-loading";
+            loadingBubble.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin text-emerald-400"></i> Analyzing UNCC policy context...`;
+            outputEl.appendChild(loadingBubble);
+            lucide.createIcons();
+            outputEl.scrollTop = outputEl.scrollHeight;
+
+            sendBtn.disabled = true;
+
+            const systemPrompt = `You are an expert UNC Charlotte Campus Accessibility & Student Policy Advisor. 
+            You are analyzing the UNCC Fall 2026 'Wheels-Free Zone' policy in Central Campus.
+            Key context:
+            1. The policy prohibits e-scooters, bicycles, skateboards, and Segways in central campus during peak hours to protect pedestrians.
+            2. ADA-approved mobility devices are officially exempt, but students with invisible disabilities, chronic fatigue, or temporary injuries face major hurdles.
+            3. Students report social stigma, security confusion, and physical strain on steep campus hills like Craver Road.
+            4. Solutions include speed-throttled geofencing corridors, digital universal exemption passes, dedicated rolling lanes, and oversight committees.
+            
+            Provide helpful, concise, well-structured responses. Use bullet points where appropriate.`;
+
+            const apiKey = ""; // Canvas runtime automatically handles empty API key
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userText }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] }
+            };
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                const data = await response.json();
+                document.getElementById('ai-loading')?.remove();
+
+                const aiText = data.candidates?.[0]?.content?.parts?.[0]?.text || "Unable to retrieve policy response at this time.";
+
+                const aiBubble = document.createElement('div');
+                aiBubble.className = "bg-slate-900/90 border border-slate-700/80 p-3.5 rounded-lg text-slate-200 text-xs leading-relaxed space-y-2";
+                aiBubble.innerHTML = `<div class="font-bold text-emerald-400 flex items-center gap-1.5 mb-1"><i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Policy Advisor:</div><div>${formatMarkdown(aiText)}</div>`;
+                
+                outputEl.appendChild(aiBubble);
+                lucide.createIcons();
+                outputEl.scrollTop = outputEl.scrollHeight;
+
+            } catch (err) {
+                document.getElementById('ai-loading')?.remove();
+                const errBubble = document.createElement('div');
+                errBubble.className = "text-rose-400 text-xs p-2";
+                errBubble.innerText = "Error connecting to Policy AI Assistant. Please try again.";
+                outputEl.appendChild(errBubble);
+            } finally {
+                sendBtn.disabled = false;
+            }
+        }
+
+        // Simple text formatting for AI response
+        function formatMarkdown(text) {
+            return text
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\n\n/g, '<br><br>')
+                .replace(/\n\* /g, '<br>• ');
+        }
+
+        // On Load Initializations
+        window.onload = function() {
+            updateRouteCalculations();
+            initChart();
+        };
+    </script>
+</body>
+</html>
